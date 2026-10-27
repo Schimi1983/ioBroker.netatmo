@@ -126,6 +126,7 @@ Same parameters as `setAway`, sets persons or complete homes as "home".
 * (@Schimi1983) Access and refresh tokens and the client secret are no longer written to the log
 * (@Schimi1983) Update intervals are validated also with own client ID (empty value led to polling every millisecond)
 * (@Schimi1983) A failing event request no longer discards the home and device status of the update cycle
+* (@Schimi1983) Temporary Netatmo outages (5xx, timeouts, "Service temporarily unavailable") are logged as warning and only as error after 3 failed requests in a row; recovery is logged; no more duplicate log entries per error
 * (@Schimi1983) Realtime events keep working after re-authentication
 * (@Schimi1983) Doorbell: "ring" is reset automatically 60 seconds after the call (Netatmo does not reliably send accepted_call), immediately on accepted_call/missed_call, and on adapter start
 * (@Schimi1983) README reworked according to the ioBroker guidelines, older changelog entries moved to CHANGELOG_OLD.md
