@@ -93,6 +93,8 @@ Basically the same functionality as described for "setAway" above also is existi
 ## Changelog
 
 ### __WORK IN PROGRESS__
+* (@Schimi1983) Reworked configuration page: tabs, responsive layout, info boxes, units and input validation, translations for all languages; requires admin >= 7.6.19
+* (@Schimi1983) Help text for event retention corrected (hours instead of minutes); default update interval 10 minutes
 * (@Apollon77) Removed the usage of a deprecated API from Netatmo which was used to enrich person data
 * (@Apollon77) Added product type NACamDoorTag
 * (@Apollon77) Allows value -2 for target position of Bubendorff roller shutters to put a Bubendorff shutter with jalousieable slats in jalousie mode
