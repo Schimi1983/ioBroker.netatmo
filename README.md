@@ -100,6 +100,8 @@ Basically the same functionality as described for "setAway" above also is existi
 * (@Schimi1983) A failing event request no longer discards the home and device status of the update cycle
 * (@Schimi1983) Realtime events keep working after re-authentication
 * (@Schimi1983) Doorbell: "ring" is reset when the call is accepted (accepted_call)
+* (@Schimi1983) Reworked configuration page: tabs, responsive layout, info boxes, units and input validation, translations for all languages; requires admin >= 7.6.19
+* (@Schimi1983) Help text for event retention corrected (hours instead of minutes); default update interval 10 minutes
 * (@Apollon77) Removed the usage of a deprecated API from Netatmo which was used to enrich person data
 * (@Apollon77) Added product type NACamDoorTag
 * (@Apollon77) Allows value -2 for target position of Bubendorff roller shutters to put a Bubendorff shutter with jalousieable slats in jalousie mode
