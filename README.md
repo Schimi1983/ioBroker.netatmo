@@ -99,7 +99,7 @@ Basically the same functionality as described for "setAway" above also is existi
 * (@Schimi1983) Update intervals are validated also with own client ID (empty value led to polling every millisecond)
 * (@Schimi1983) A failing event request no longer discards the home and device status of the update cycle
 * (@Schimi1983) Realtime events keep working after re-authentication
-* (@Schimi1983) Doorbell: "ring" is reset when the call is accepted (accepted_call)
+* (@Schimi1983) Doorbell: "ring" is reset automatically 60 seconds after the call (Netatmo does not reliably send accepted_call), immediately on accepted_call/missed_call, and on adapter start
 * (@Schimi1983) Reworked configuration page: tabs, responsive layout, info boxes, units and input validation, translations for all languages; requires admin >= 7.6.19
 * (@Schimi1983) Help text for event retention corrected (hours instead of minutes); default update interval 10 minutes
 * (@Apollon77) Removed the usage of a deprecated API from Netatmo which was used to enrich person data
