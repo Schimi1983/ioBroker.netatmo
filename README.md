@@ -74,6 +74,22 @@ Some devices (e.g. cameras) are initialized with the latest event per type. For 
 * `incoming_call`, `accepted_call` and `missed_call` contain time, event ID and snapshot URL of the last event of this type.
 * Netatmo delivers the webhook events with a delay of a few seconds up to about 2 minutes.
 
+### Device status
+
+For every device the adapter writes the status values Netatmo delivers. Values a device type does not provide are not created.
+
+| State | Devices | Meaning |
+|---|---|---|
+| `info.connection` (instance) | all | `true` while the Netatmo cloud is reachable and the login is valid |
+| `<device>.info.reachable` | cameras, doorbell, smoke/CO alarm, shutters | `false` if the device is offline (e.g. no WiFi) |
+| `<device>.info.error` | cameras, doorbell, smoke/CO alarm, shutters | Netatmo error of the device, e.g. `device_unreachable`, empty if ok |
+| `<device>.info.wifi_strength`, `rf_strength` | depending on device | signal strength, lower is better |
+| `<device>.info.battery_state`, `battery_level` | battery devices | battery state and voltage (mV) |
+| `<device>.info.firmware` | depending on device | firmware version |
+| `Reachable`, `Firmware` (weather station modules), `reachable` (Healthy Home Coach) | weather station, coach | reachability and firmware |
+
+A device going offline is logged once as warning, coming back as info. Doorbell and cameras also update `info.reachable` immediately from the `connection`/`disconnection` realtime events, if Netatmo sends them.
+
 ### iDiamant/Bubendorff roller shutters
 
 The Netatmo API does not provide realtime data for roller shutters, so the values are polled with the update interval. They are not accurate in realtime when the shutters are controlled directly or via the Netatmo app.
@@ -126,6 +142,7 @@ Same parameters as `setAway`, sets persons or complete homes as "home".
 * (@Schimi1983) Access and refresh tokens and the client secret are no longer written to the log
 * (@Schimi1983) Update intervals are validated also with own client ID (empty value led to polling every millisecond)
 * (@Schimi1983) A failing event request no longer discards the home and device status of the update cycle
+* (@Schimi1983) Device status for all devices: reachable, error, signal strength, battery and firmware; offline/online is logged; new state info.connection
 * (@Schimi1983) Temporary Netatmo outages (5xx, timeouts, "Service temporarily unavailable") are logged as warning and only as error after 3 failed requests in a row; recovery is logged; no more duplicate log entries per error
 * (@Schimi1983) Realtime events keep working after re-authentication
 * (@Schimi1983) Doorbell: "ring" is reset automatically 60 seconds after the call (Netatmo does not reliably send accepted_call), immediately on accepted_call/missed_call, and on adapter start
