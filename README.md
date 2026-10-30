@@ -93,6 +93,7 @@ Basically the same functionality as described for "setAway" above also is existi
 ## Changelog
 
 ### __WORK IN PROGRESS__
+* (@Schimi1983) State roles corrected according to the ioBroker state roles (e.g. `date` instead of the non-existing `value.date`, `text` for texts instead of the generic `state`, `level`/`value.blind` for roller shutters); only roles changed, IDs, types and values stay the same
 * (@Apollon77) Removed the usage of a deprecated API from Netatmo which was used to enrich person data
 * (@Apollon77) Added product type NACamDoorTag
 * (@Apollon77) Allows value -2 for target position of Bubendorff roller shutters to put a Bubendorff shutter with jalousieable slats in jalousie mode
