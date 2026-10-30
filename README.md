@@ -137,6 +137,7 @@ Same parameters as `setAway`, sets persons or complete homes as "home".
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* (@Schimi1983) State roles corrected according to the ioBroker state roles (e.g. `date` instead of the non-existing `value.date`, `text` for texts instead of the generic `state`, `level`/`value.blind` for roller shutters); only roles changed, IDs, types and values stay the same
 * (@Schimi1983) Fixed adapter crash when changing a state (e.g. camera monitoring) while the access token had expired
 * (@Schimi1983) Token refresh: an invalid refresh token is now reported (re-authentication required) instead of silently starting without data; no endless refresh loop; only one refresh at a time (Netatmo rotates refresh tokens)
 * (@Schimi1983) Access and refresh tokens and the client secret are no longer written to the log
